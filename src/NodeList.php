@@ -22,13 +22,17 @@ final class NodeList implements \Countable, \IteratorAggregate
 	 */
 	public static function from(Node|self $node, Node|self ...$nodes): self
 	{
-		$nodes = array_merge([$node], $nodes);
-		$nodes = array_map(
-			fn($node) => $node instanceof NodeList ? $node->__toArray() : $node,
-			$nodes
-		);
+		$all = [];
 
-		return new self(...$nodes);
+		foreach ([$node, ...$nodes] as $node) {
+			if ($node instanceof self) {
+				$all = array_merge($all, $node->__toArray());
+			} else {
+				$all[] = $node;
+			}
+		}
+
+		return new self(...$all);
 	}
 
     /**
