@@ -1,0 +1,28 @@
+{
+    "name": "meraki/dom",
+    "type": "library",
+    "require-dev": {
+        "meraki/test-suite": "^0.3.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Meraki\\Dom\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Meraki\\Dom\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nathan",
+            "email": "nbish11@hotmail.com"
+        }
+    ],
+    "require": {},
+    "scripts": {
+        "test": "phpunit"
+    }
+}
